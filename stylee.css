@@ -1,0 +1,49 @@
+.header{
+    background: #FEFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    font-size: 19px;
+}
+li{
+    margin-left: 50px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+@media only screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        flex-direction: row; 
+        align-items: center; 
+    }
+    .logoo{
+        width: 40px;
+        height: 40px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    ul {
+        display: flex;
+        font-size: 16px !important;
+    }
+
+    li {
+        margin-left: 25px !important;
+    }
+}
