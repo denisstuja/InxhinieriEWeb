@@ -1,49 +1,89 @@
-.header{
-    background: #FEFFFF;
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.header {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-}
-.menu{
-    display: flex;
-    flex-direction: row;
     align-items: center;
+    padding: 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
 }
-ul{
-    display: flex;
+
+.logo img {
+    height: 70px;
+    width: 70px;
+}
+
+.menu ul {
     list-style-type: none;
-    font-size: 19px;
+    display: flex;
 }
-li{
-    margin-left: 50px;
+
+.menu ul li {
+    margin: 0 15px;
 }
-a{
+
+.menu a {
     text-decoration: none;
     color: black;
 }
+
+.prezantim {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 850px;
+    position: relative;
+    background-image: url(fresh-coffee-steams-wooden-table-close-up-generative-ai_188544-8923.avif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+h1 {
+    margin-top: 150px;
+    color: #FEFFFF;
+    font-family: 'Poppins',sans-serif;
+    z-index: 2; /* Ensure the text is above the overlay */
+}
+.sherbimet{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    background-color: #eeee;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 700px;
+    height: 400px;
+    padding-left: 20px;
+    padding-right: 10px;
+    border-radius: 10px;
+    background-color:aqua;
+}
+h2{
+    font-family: 'Poppins',sans-serif;
+}
+p{
+    font-family: 'Poppins',sans-serif;
+
+}
 @media only screen and (max-width: 600px) {
-    .header {
+    .sherbimet{
         display: flex;
-        flex-direction: row; 
-        align-items: center; 
-    }
-    .logoo{
-        width: 40px;
-        height: 40px;
-    }
-    .menu {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    ul {
-        display: flex;
-        font-size: 16px !important;
-    }
-
-    li {
-        margin-left: 25px !important;
+        flex-direction: column;
+        height: 1500px;
     }
 }
