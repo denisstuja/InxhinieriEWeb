@@ -18,9 +18,11 @@ body {
 .logo img {
     height: 70px;
     width: 70px;
+    object-fit: contain;
 }
 
 .menu ul {
+    padding-left: 600px;
     list-style-type: none;
     display: flex;
 }
@@ -107,6 +109,9 @@ footer{
     align-items: center;
     justify-content: center;
 }
+.boxes img{
+    object-fit: contain;
+}
 .boxes{
     display: flex;
     flex-direction: column;
@@ -148,6 +153,10 @@ li a{
     width: calc(100% - 400px); 
     margin-left: 200px;
 }
+.h2{
+    font-size: 48px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .produktet{
     height: 1000px;
     width: 100%;
@@ -170,6 +179,8 @@ li a{
 }
 .produkti{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     border: 1px solid black;
     height: 480px;
@@ -198,9 +209,53 @@ li a{
     color: #795C34;
 }
 .fotografia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
     width: 100%;
     height: 100%;
     border-radius: 20px;
+}
+/*   Product info */
+.coffeinfo{
+    padding-top: 100px;
+    font-size: 70px;
+    font-family: Impact,' Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+}
+.prod{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 800px;
+    width: 100%;}
+.infot img{
+    width: 400px;
+    height: 700px;
+}
+.foto{ 
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    padding-bottom: 100px;
+}
+.ingredients{
+    text-align: left;
+    padding: 70px;
+}
+.price{
+    padding: 70px;
+    font-size: 40px;
+    color: green;
+}
+.infot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 60%;
+    height: 1000px;
+    padding-bottom: 100px;
 }
 @media only screen and (max-width: 600px) {
     h1{
@@ -236,6 +291,9 @@ li a{
     }
     .logo{
         padding-left: 30px;
+    }
+    .menu ul{
+        padding-left: 10px;
     }
     .menu ul li {
         margin: 5px;
