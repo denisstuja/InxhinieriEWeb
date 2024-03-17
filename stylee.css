@@ -16,6 +16,10 @@ body {
     font-weight: 500;
     border-bottom: solid #795C34 1px;
 }
+.hero-main{
+    color: white;
+    font-size: 70px;
+}
 .logo img {
     height: 100px;
     width: 100px;
@@ -449,6 +453,7 @@ h1 {
 	float: right;
 	width: 45%;
 }
+
 
 input[type='text'], [type='email'], select, textarea {
 	background: none;
