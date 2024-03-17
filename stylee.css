@@ -392,7 +392,7 @@ button, select {
 }
 
 button, input, select, textarea {
-  color: #795C34;
+  color: #5A5A5A;
   font: inherit;
   margin: 0;
 }
@@ -595,7 +595,6 @@ textarea {
     font-size: 0.875em;
   }
 }
-
 @media only screen and (max-width: 600px) {
     h1{
         font-size: 30px;
