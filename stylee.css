@@ -14,6 +14,7 @@ body {
     padding: 20px;
     font-family: 'Poppins',sans-serif;
     font-weight: 500;
+    border-bottom: solid #795C34 1px;
 }
 .logo img {
     height: 100px;
@@ -283,6 +284,88 @@ li a{
 .spjegim p{
     font-family:'Times New Roman', Times, serif;
     font-size: 23px;
+}
+.blogs-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.blogs-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .3rem;
+    justify-content: center;
+    padding: .3rem;
+    width: 260px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #fff;
+    margin: .5rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.blogs-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 10px 8px 30px rgb(0 0 0 / 30%);
+}
+
+.blog-image {
+    overflow: hidden;
+    border-radius: .3rem;
+}
+
+.blog-image:hover img {
+    transition: all .3s;
+    transform: scale(1.1);
+    border-radius: .3rem;
+}
+
+.blog-image img {
+    width: 100%;
+    background-size: contain;
+    border-radius: .3rem;
+}
+
+.about-author img {
+    width: 20%;
+}
+
+.description {
+    font-size: .75rem;
+}
+
+.blog-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .7rem;
+    margin-top: 1rem;
+}
+
+.about-author {
+    display: flex;
+    align-items: center;
+    font-size: .6rem;
+    justify-content: center;
+    padding: 10px;
+    bottom: 0;
+
+}
+.author-pp{
+    border-radius: 50%;
+    align-self: center;
+    padding-right: 5px;
+}
+
+.about-author span {
+    font-weight: bold;
 }
 @media only screen and (max-width: 600px) {
     h1{
