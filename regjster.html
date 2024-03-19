@@ -15,26 +15,26 @@
             <form action="" method="post">
                 <div class="field input">
                     <label>Username</label>
-                    <input type="text" name="username" id="username">
+                    <input type="text" name="username" id="username" class="username">
                 </div>
                 <div class="field input">
                     <label>Email</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email" id="email" class="email">
                 </div>
                 <div class="field input">
                     <label>Age</label>
-                    <input type="number" name="age" id="age">
+                    <input type="number" name="age" id="age" class="age">
                 </div>
                 <div class="field input">
                     <label>Password</label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" class="password">
                 </div>
                 <div class="field input">
                     <label>Confirm Password</label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" class="confirm-password">
                 </div>
                 <div class="field input">
-                    <label>Confirm Password</label>
+                    <label>Role</label>
                     <select name="select" id="select">
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
@@ -50,4 +50,58 @@
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        const username = document.querySelector('.username');
+        const email = document.querySelector('.email');
+        const age = document.querySelector('.age');
+        const password = document.querySelector('.password');
+        const confirmPassword = document.querySelector('.confirm-password');
+        const btn = document.querySelector('.btn');
+
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const usernameValue = username.value;
+            const emailValue = email.value;
+            const ageValue = age.value;
+            const passwordValue = password.value;
+            const confirmPasswordValue = confirmPassword.value;
+
+            if(usernameValue === '' || emailValue === '' || ageValue === '' || passwordValue === '' || confirmPasswordValue === ''){
+                alert("Fill the inputs!");
+                return;
+            }
+            if(usernameValue === ''){
+                alert("Fill the name!");
+                return;
+            }
+            if(emailValue === ''){
+                alert("Fill the email!");
+                return;
+            }
+            if(emailValue.indexOf('@') === -1){
+                alert("Enter a valid email address!");
+                return;
+            }
+            if(ageValue === '' || ageValue < 18 || ageValue > 60){
+                alert("Fill the correct age!");
+                return;
+            }
+            if(passwordValue.length < 8){
+                alert("Password should be at least 8 characters long!");
+                return;
+            }
+            if(confirmPasswordValue.length < 8){
+                alert("Confirm Password should be at least 8 characters long!");
+                return;
+            }
+            if(passwordValue !== confirmPasswordValue){
+                alert('Password is not the same');
+                return;
+            }
+            window.location.href = 'login.html';
+        });
+    })();
+</script>
 </html>

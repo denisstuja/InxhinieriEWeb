@@ -12,14 +12,14 @@
     <div class="container">  
         <div class="box form-box">
             <header>Log In</header>
-            <form action="" method="post">
+            <form id="loginForm" action="" method="post">
                 <div class="field input">
                     <label>Username</label>
-                    <input type="text" name="username" id="username">
+                    <input type="text" name="username" id="username" class="name">
                 </div>
                 <div class="field input">
                     <label>Password</label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" class="password">
                 </div>
                 <div class="field">
                     <input type="submit" class="btn" name="submit" value="Log In">
@@ -31,4 +31,39 @@
         </div>
     </div>
 </body>
+<script>
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const name = document.querySelector('.name');
+        const password = document.querySelector('.password');
+        const btn = document.querySelector('.btn');
+        const form = document.getElementById('loginForm');
+
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+        const nameValue = name.value;
+        const passwordValue = password.value;
+        
+        if(nameValue === '' && passwordValue === ''){
+            alert('Fill the inputs');
+            return;
+        }
+
+        if(nameValue === ''){
+            alert('Fill the name');
+            return;
+        }
+        if(passwordValue === ''){
+            alert('Fill the password');
+            return;
+        }
+        if(passwordValue.length < 8){
+            alert('Password should be at least 8 characters long!');
+            return;
+        }
+        window.location.href = 'home.html';
+        });
+    })();
+</script>
 </html>
