@@ -9,15 +9,16 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="home.html"><img src="/2d8y_nlz2_221115-removebg-preview.png" height="70px" width="70px" class="logoo"></a>
+            <a href="home.php"><img src="fotot/2d8y_nlz2_221115-removebg-preview.png" height="70px" width="70px" class="logoo"></a>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="news.php">News</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="login.php" class="login">Log In</a></li>
             </ul>
         </div>
     </div>
@@ -26,7 +27,7 @@
     <div class="separator"></div>
     <div class="prod">
         <div class="foto">
-            <img src="/1_cc_caffelatte_r.webp" alt="">
+            <img src="fotot/1_cc_caffelatte_r.webp" alt="">
         </div>
         <div class="infot">
             <p class="h2 ingredients" >Ingredients</p>
@@ -48,15 +49,15 @@
         <div class="footer">
             <div class="informatat">
                 <div class="boxes">
-                    <a href="home.html"><img src="/2d8y_nlz2_221115-removebg-preview.png" height="300px" class="logoo"></a>
+                    <a href="home.php"><img src="fotot/2d8y_nlz2_221115-removebg-preview.png" height="300px" class="logoo"></a>
                 </div>
                 <div class="boxes">
                     <h2>Pages</h4>
                         <ul>
-                            <li><a href="products.html" style="text-decoration: none;">Products</a></li>
-                            <li><a href="about.html" style="text-decoration: none;">About</a></li>
-                            <li><a href="news.html" style="text-decoration: none;">News</a></li>
-                            <li><a href="contact.html" style="text-decoration: none;">Contact</a></li>
+                            <li><a href="products.php" style="text-decoration: none;">Products</a></li>
+                            <li><a href="about.php" style="text-decoration: none;">About</a></li>
+                            <li><a href="news.php" style="text-decoration: none;">News</a></li>
+                            <li><a href="contact.php" style="text-decoration: none;">Contact</a></li>
                         </ul>
                 </div>
                 <div class="boxes">

@@ -25,7 +25,7 @@
                     <input type="submit" class="btn" name="submit" value="Log In">
                 </div>
                 <div class="links">
-                    Don't have account? <a href="regjster.html">Sign up</a>
+                    Don't have account? <a href="regster.php">Sign up</a>
                 </div>
             </form>
         </div>
@@ -62,7 +62,7 @@
             alert('Password should be at least 8 characters long!');
             return;
         }
-        window.location.href = 'home.html';
+        window.location.href = 'home.php';
         });
     })();
 </script>
