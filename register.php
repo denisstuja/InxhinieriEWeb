@@ -10,6 +10,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php
+    
+        require 'config.php';
+
+        if(isset($_POST["submit"])){
+            $username = $_POST["username"];
+            $email = $_POST["email"];
+            $age = $_POST["age"];
+            $password = $_POST["password"];
+            $user = $_POST["user"];
+
+            $query = "INSERT INTO register (username, email, age, password, user) VALUES ('$username', '$email', '$age', '$password', '$user')";
+            mysqli_query($conn, $query);
+            echo
+            "
+            <script>alert('Data Inserted Succesfully!');</script>
+            ";
+        }
+
+    ?>
     <div class="container">  
         <div class="box form-box">
             <header>Register</header>
@@ -36,13 +56,13 @@
                 </div>
                 <div class="field input">
                     <label>Role</label>
-                    <select name="select" id="select">
+                    <select name="user" id="user">
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                     </select>                
                 </div>
                 <div class="field">
-                    <input type="submit" class="btn" name="submit" value="Sign Up">
+                    <button type="submit" class="btn" name="submit" value="Sign Up">Sign Up</button>
                 </div>
                 <div class="links">
                     You have an Accont? <a href="login.php">Log In</a>
@@ -54,41 +74,42 @@
 
 <script>
    document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector('form');
-    const btn = document.querySelector('.btn');
+        const myForm = document.querySelector('form'); // Select the form element
 
-    btn.addEventListener('click', function (event) {
-        event.preventDefault();
+        myForm.addEventListener('submit', function (event) {
+            const username = document.querySelector('.username').value;
+            const email = document.querySelector('.email').value;
+            const age = document.querySelector('.age').value;
+            const password = document.querySelector('.password').value;
+            const confirmPassword = document.querySelector('.confirm-password').value;
 
-        const username = document.querySelector('.username').value;
-        const email = document.querySelector('.email').value;
-        const age = document.querySelector('.age').value;
-        const password = document.querySelector('.password').value;
-        const confirmPassword = document.querySelector('.confirm-password').value;
-
-        if (username === '' || email === '' || age === '' || password === '' || confirmPassword === '') {
-            alert("Fill all inputs!");
-            return;
-        }
-        if (email.indexOf('@') === -1) {
-            alert("Enter a valid email address!");
-            return;
-        }
-        if (age < 18 || age > 60) {
-            alert("Enter a valid age between 18 and 60!");
-            return;
-        }
-        if (password.length < 8) {
-            alert("Password should be at least 8 characters long!");
-            return;
-        }
-        if (password !== confirmPassword) {
-            alert('Passwords do not match!');
-            return;
-        }
-        form.submit();
+            if (username === '' || email === '' || age === '' || password === '' || confirmPassword === '') {
+                alert("Fill all inputs!");
+                event.preventDefault(); // Prevent form submission if inputs are not filled
+                return;
+            }
+            if (email.indexOf('@') === -1) {
+                alert("Enter a valid email address!");
+                event.preventDefault(); // Prevent form submission if email is invalid
+                return;
+            }
+            if (age < 18 || age > 60) {
+                alert("Enter a valid age between 18 and 60!");
+                event.preventDefault(); // Prevent form submission if age is not valid
+                return;
+            }
+            if (password.length < 8) {
+                alert("Password should be at least 8 characters long!");
+                event.preventDefault(); // Prevent form submission if password is too short
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                event.preventDefault(); // Prevent form submission if passwords do not match
+                return;
+            }
+        });
     });
-});
 
 </script>
 </html>
