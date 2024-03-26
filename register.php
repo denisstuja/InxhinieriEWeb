@@ -14,15 +14,6 @@
         <div class="box form-box">
             <header>Register</header>
             <form action="register.php" method="post">
-                <?php
-                
-                if(isset($error)){
-                    foreach($error as $error){
-                        echo '<span class"error-msg">'.$error.'</span>';
-                    }
-                };
-
-                ?>
                 <div class="field input">
                     <label>Username</label>
                     <input type="text" name="username" id="username" class="username">
