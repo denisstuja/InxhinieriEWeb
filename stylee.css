@@ -614,7 +614,13 @@ textarea {
   background: #474544;
   color: #F2F3EB;
 }
-
+table{
+  width: 100%;
+}
+.logout{
+  font-size: 32px;
+  margin-left: 45%;
+}
 @media screen and (max-width: 768px) {
   #container {
     margin: 20px auto;

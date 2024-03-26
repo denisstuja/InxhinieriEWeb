@@ -21,7 +21,6 @@
                 <li><a href="about.php">About</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="contact.php">Contact</a></li>
-                <li><a href="login.php" class="login">Log In</a></li>
 
             </ul>
         </div>

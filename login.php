@@ -1,3 +1,33 @@
+<?php
+    require 'config.php'; // Include the database configuration file
+
+    // Check if form is submitted
+    if(isset($_POST["submit"])) {
+        $username = mysqli_real_escape_string($conn, $_POST["username"]);
+        $password = $_POST["password"]; // Plain text password
+
+        // Fetch user data from database based on username
+        $query = "SELECT * FROM register WHERE username = '$username'";
+        $result = mysqli_query($conn, $query);
+
+        if($result && mysqli_num_rows($result) > 0) {
+            $user = mysqli_fetch_assoc($result);
+
+            // Verify the password
+            if($password === $user['password']) { // Compare plain text passwords
+                // Password is correct, redirect user to home page
+                header("Location: home.php");
+                exit();
+            } else {
+                // Password is incorrect
+                echo "<script>alert('Incorrect password');</script>";
+            }
+        } else {
+            // User not found
+            echo "<script>alert('User not found');</script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,45 +55,26 @@
                     <input type="submit" class="btn" name="submit" value="Log In">
                 </div>
                 <div class="links">
-                    Don't have account? <a href="regster.php">Sign up</a>
+                    Don't have account? <a href="register.php">Sign up</a>
                 </div>
             </form>
         </div>
     </div>
 </body>
 <script>
-
-    document.addEventListener("DOMContentLoaded",function (){
-        const name = document.querySelector('.name');
-        const password = document.querySelector('.password');
-        const btn = document.querySelector('.btn');
+    document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById('loginForm');
 
-        btn.addEventListener('click', (event) => {
-            event.preventDefault();
+        form.addEventListener('submit', (event) => {
+            const usernameInput = document.getElementById('username').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
 
-        const nameValue = name.value;
-        const passwordValue = password.value;
-        
-        if(nameValue === '' && passwordValue === ''){
-            alert('Fill the inputs');
-            return;
-        }
-
-        if(nameValue === ''){
-            alert('Fill the name');
-            return;
-        }
-        if(passwordValue === ''){
-            alert('Fill the password');
-            return;
-        }
-        if(passwordValue.length < 8){
-            alert('Password should be at least 8 characters long!');
-            return;
-        }
-        window.location.href = 'home.php';
+            if(usernameInput === '' || passwordInput === '') {
+                alert('Please fill in both username and password fields.');
+                event.preventDefault();
+                return;
+            }
         });
-    })();
+    });
 </script>
 </html>

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="stylee.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="stylee.css">
+        <title>Admin Page</title>
+    </head>
 <body>
     <div class="header">
         <div class="logo">
@@ -18,32 +21,38 @@
                 <li><a href="about.php">About</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="contact.php">Contact</a></li>
+                <li><a href="admin.html">Admin Page</a></li>
             </ul>
         </div>
     </div>
-
-    <p class="coffeinfo">Coffe Information</p>
-    <div class="separator"></div>
-    <div class="prod">
-        <div class="foto">
-            <img src="fotot/1_cc_caffelatte_r.webp" alt="">
-        </div>
-        <div class="infot">
-            <p class="h2 ingredients" >Ingredients</p>
-            <p class="ingredients">Our signature coffee blend is crafted from the finest Arabica beans sourced 
-                from the lush coffee plantations of Colombia and Ethiopia. Each cup of our 
-                meticulously brewed coffee is a blend of rich, full-bodied flavors, with notes 
-                of dark chocolate and hints of citrus. We pride ourselves on using only the highest 
-                quality ingredients, ensuring that every sip of our coffee delivers a delightful and 
-                satisfying experience. From the earthy aroma to the smooth, velvety texture, our coffee is 
-                a testament to our commitment to excellence in every cup.</p>
-            <div class="button-price">
-                <p class="price">19.00$</p>
-                <button class="button-37" role="button">Order Now</button>
-            </div>
-           
-        </div>
-    </div>
+    <h1>Welcome to the Admin Dashboard</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?php echo $user['id']; ?></td>
+                <td><?php echo $user['username']; ?></td>
+                <td><?php echo $user['email']; ?></td>
+                <td><?php echo $user['age']; ?></td>
+                <td><?php echo $user['password']; ?></td>
+                <td>
+                    <a href="edit_user.php?id=<?php echo $user['id']; ?>">Edit</a>
+                    <a href="delete_user.php?id=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <a href="login.php" class="logout">Logout</a>
     <footer>
         <div class="footer">
             <div class="informatat">
