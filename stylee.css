@@ -632,11 +632,6 @@ tr{
 td{
   border: 1px solid black;
 }
-.buttons{
-  display: flex;
-  flex-direction: row;
-}
-
 @media screen and (max-width: 768px) {
   #container {
     margin: 20px auto;
