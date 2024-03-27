@@ -19,7 +19,7 @@
     }
 
     // Fetch data from the database
-    $query = "SELECT * FROM register";
+    $query = "SELECT * FROM register WHERE user != 'admin'";
     $result = mysqli_query($conn, $query);
 
     if(!$result) {
