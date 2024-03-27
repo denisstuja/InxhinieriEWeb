@@ -1,3 +1,31 @@
+<?php
+    require_once('config.php');
+
+    // Check if the delete button is clicked and a valid delete ID is provided
+    if(isset($_POST['delete_id']) && is_numeric($_POST['delete_id'])) {
+        $delete_id = $_POST['delete_id'];
+
+        // Delete the row from the database
+        $delete_query = "DELETE FROM register WHERE id = $delete_id";
+        $delete_result = mysqli_query($conn, $delete_query);
+
+        if($delete_result) {
+            // Redirect to the current page after deletion
+            header("Location: admin.php");
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($conn); // Handle deletion error
+        }
+    }
+
+    // Fetch data from the database
+    $query = "SELECT * FROM register";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result) {
+        echo "Query failed: " . mysqli_error($conn);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,31 +54,32 @@
         </div>
     </div>
     <h1>Welcome to the Admin Dashboard</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?php echo $user['id']; ?></td>
-                <td><?php echo $user['username']; ?></td>
-                <td><?php echo $user['email']; ?></td>
-                <td><?php echo $user['age']; ?></td>
-                <td><?php echo $user['password']; ?></td>
-                <td>
-                    <a href="edit_user.php?id=<?php echo $user['id']; ?>">Edit</a>
-                    <a href="delete_user.php?id=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+    <table class="table">
+        <tr>
+            <th class="inside-table">ID</th>
+            <th class="inside-table">Username</th>
+            <th class="inside-table">Email</th>
+            <th class="inside-table">Age</th>
+            <th class="inside-table">Action</th>
+        </tr>
+        <?php
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['id'] . "</td>";
+                echo "<td>" . $row['username'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['age'] . "</td>";
+                // Add delete form with hidden input for delete_id
+                echo "<td>";
+                echo "<form method='POST' action=''>";
+                echo "<input type='hidden' name='delete_id' value='" . $row['id'] . "'>";
+                echo "<button type='submit' name='delete' class='btn-delete'>Delete</button>";
+                echo "</form>";
+                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+        ?>
     </table>
     <a href="login.php" class="logout">Logout</a>
     <footer>
