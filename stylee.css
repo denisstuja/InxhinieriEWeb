@@ -509,7 +509,7 @@ h1 {
 }
 
 
-input[type='text'], [type='email'], select, textarea {
+input[type='text'], [type='email'], [type='age'], select, textarea {
 	background: none;
   border: none;
 	border-bottom: solid 2px #474544;
@@ -533,7 +533,7 @@ input[type='text'], [type='email'], select, textarea {
 	transition: all 0.3s;
 }
 
-input[type='text']:focus, [type='email']:focus, textarea:focus {
+input[type='text']:focus, [type='email']:focus,  [type='age']:focus, textarea:focus {
 	outline: none;
 	padding: 0 0 0.875em 0;
 }

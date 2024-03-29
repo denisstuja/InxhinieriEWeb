@@ -64,11 +64,12 @@ if(isset($_POST['submit'])) {
         </div>
         <div>
             <label>Age</label>
-            <input type="number" name="age" value="<?php echo $user['age']; ?>">
+            <input type="text" name="age" value="<?php echo $user['age']; ?>">
         </div>
         <div>
             <label>Password</label>
-            <input type="password" name="password" value="<?php echo $user['password']; ?>">
+            <input type="text" name="password" value="<?php echo $user['password']; ?>">
+            <!-- <span toggle="#password-field" class="eye-toggle fas fa-eye"></span> -->
         </div>
         <button type="submit" name="submit">Update</button>
     </form>
@@ -102,6 +103,13 @@ if(isset($_POST['submit'])) {
                     event.preventDefault(); // Prevent form submission if password is too short
                     return;
                 }
+            });
+            const passwordField = document.querySelector('[name="password"]');
+            const eyeToggle = document.querySelector('.eye-toggle');
+
+            eyeToggle.addEventListener('click', function () {
+                const fieldType = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', fieldType);
             });
         });
     </script>

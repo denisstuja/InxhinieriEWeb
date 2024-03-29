@@ -59,6 +59,7 @@
             <th class="inside-table">ID</th>
             <th class="inside-table">Username</th>
             <th class="inside-table">Email</th>
+            <th class="inside-table">Password</th>
             <th class="inside-table">Age</th>
             <th class="inside-table">Action</th>
         </tr>
@@ -68,6 +69,7 @@
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['password'] . "</td>";
                 echo "<td>" . $row['age'] . "</td>";
                 // Add delete form with hidden input for delete_id
                 echo "<td>";
