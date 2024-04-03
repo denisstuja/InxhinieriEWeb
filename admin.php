@@ -17,12 +17,17 @@
             echo "Error: " . mysqli_error($conn); // Handle deletion error
         }
     }
+    $query_contact = "SELECT * FROM contact";
+    $result_contact = mysqli_query($conn, $query_contact);
 
+    if (!$result_contact) {
+        echo "Query failed: " . mysqli_error($conn);
+    }
     // Fetch data from the database
-    $query = "SELECT * FROM register WHERE user != 'admin'";
-    $result = mysqli_query($conn, $query);
+    $query_register = "SELECT * FROM register WHERE user != 'admin'";
+    $result_register = mysqli_query($conn, $query_register);
 
-    if(!$result) {
+    if (!$result_register) {
         echo "Query failed: " . mysqli_error($conn);
     }
 ?>
@@ -49,11 +54,40 @@
                 <li><a href="about.php">About</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="contact.php">Contact</a></li>
-                <li><a href="admin.html">Admin Page</a></li>
+                <li><a href="admin.php">Admin Page</a></li>
             </ul>
         </div>
     </div>
     <h1>Welcome to the Admin Dashboard</h1>
+    <div class="container">
+        <div class="table-container">
+            <h2>Contact Form Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Subject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <?php
+                            // Display contact form data in table rows
+                            while ($row_contact = mysqli_fetch_assoc($result_contact)) {
+                                echo "<tr>";
+                                echo "<td>" . $row_contact['name'] . "</td>";
+                                echo "<td>" . $row_contact['email'] . "</td>";
+                                echo "<td>" . $row_contact['number'] . "</td>";
+                                echo "<td>" . $row_contact['subject'] . "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h3>Page Users</h3>
     <table class="table">
         <tr>
             <th class="inside-table">ID</th>
@@ -64,20 +98,20 @@
             <th class="inside-table">Action</th>
         </tr>
         <?php
-            while($row = mysqli_fetch_assoc($result)) {
+            // Display registered user data in table rows
+            while ($row_register = mysqli_fetch_assoc($result_register)) {
                 echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['username'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['password'] . "</td>";
-                echo "<td>" . $row['age'] . "</td>";
-                // Add delete form with hidden input for delete_id
+                echo "<td>" . $row_register['id'] . "</td>";
+                echo "<td>" . $row_register['username'] . "</td>";
+                echo "<td>" . $row_register['email'] . "</td>";
+                echo "<td>" . $row_register['password'] . "</td>";
+                echo "<td>" . $row_register['age'] . "</td>";
                 echo "<td>";
-                echo "<form method='POST' action=''>";
-                echo "<input type='hidden' name='delete_id' value='" . $row['id'] . "'>";
+                echo "<form method='POST' action='admin.php'>"; // Update action here
+                echo "<input type='hidden' name='delete_id' value='" . $row_register['id'] . "'>";
                 echo "<button type='submit' name='delete' class='btn-delete'>Delete</button>";
                 echo "</form>";
-                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a>";
+                echo "<a href='edit.php?id=" . $row_register['id'] . "' class='btn-edit'>Edit</a>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -109,7 +143,7 @@
                 </div>
             </div>
             <div class="poshte">
-                <p>@2024 SocialSphere. All Rights Reserved Design & Developed by SocialSphere</>
+                <p>@2024 Lawyerlead. All Rights Reserved Design & Developed by SocialSphere</>
             </div>
         </div>
     </footer>

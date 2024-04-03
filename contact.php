@@ -25,7 +25,6 @@
         </div>
     </div>
     <section class="contac-container">
-        
         <div id="container">
             <h1>&bull; Keep in Touch &bull;</h1>
             <div class="underline">
@@ -36,7 +35,7 @@
                 <path d="M70.865,101.78c0,4.774,3.886,8.657,8.66,8.657c4.774,0,8.657-3.883,8.657-8.657c0-4.773-3.883-8.656-8.657-8.656    C74.751,93.124,70.865,97.006,70.865,101.78z"></path>
               </svg>
             </div>
-            <form action="#" method="post" id="contact_form">
+            <form action="contact_handler.php" method="post" id="contact_form">
               <div class="name">
                 <label for="name"></label>
                 <input type="text" placeholder="My name is" name="name" id="name_input" required>
@@ -47,14 +46,14 @@
               </div>
               <div class="telephone">
                 <label for="name"></label>
-                <input type="text" placeholder="My number is" name="telephone" id="telephone_input" required>
+                <input type="text" placeholder="My number is" name="number" id="telephone_input" required>
               </div>
               <div class="message">
                 <label for="message"></label>
-                <textarea name="message" placeholder="I'd like to chat about" id="message_input" cols="30" rows="5" required></textarea>
+                <textarea placeholder="I'd like to chat about" name="subject" id="message_input" cols="30" rows="5" required></textarea>
               </div>
               <div class="submit">
-                <input type="submit" value="Send Message" id="form_button" />
+                <input type="submit" value="Send Message" name="contact_submit" id="form_button" />
               </div>
             </form><!-- // End form -->
           </div><!-- // End #container -->
@@ -85,7 +84,7 @@
                 </div>
             </div>
             <div class="poshte">
-                <p>@2024 SocialSphere. All Rights Reserved Design & Developed by SocialSphere</p>
+                <p>@2024 Lawyerlead. All Rights Reserved Design & Developed by SocialSphere</p>
             </div>
         </div>
     </footer>
