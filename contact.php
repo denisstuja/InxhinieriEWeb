@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="poshte">
-                <p>@2024 Lawyerlead. All Rights Reserved Design & Developed by SocialSphere</p>
+                <p>@2024 SocialSphere. All Rights Reserved Design & Developed by SocialSphere</p>
             </div>
         </div>
     </footer>
